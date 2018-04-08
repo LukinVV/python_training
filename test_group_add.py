@@ -2,9 +2,12 @@
 # from selenium.webdriver.firefox.webdriver import WebDriver так и не смог заупстить в Firefox, бразер открывается
 #  но ни чего не происходит
 
-from selenium.webdriver.chrome.webdriver import WebDriver
+# from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 import time, unittest
+
+chrome=webdriver.Chrome()
 
 def is_alert_present(wd):
     try:
@@ -15,7 +18,7 @@ def is_alert_present(wd):
 
 class test_group_add(unittest.TestCase):
     def setUp(self):
-        self.wd = WebDriver()
+        self.wd = chrome
         self.wd.implicitly_wait(60)
     
     def test_test_group_add(self):
