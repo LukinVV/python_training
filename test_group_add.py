@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
-from selenium.webdriver.firefox.webdriver import WebDriver
+# from selenium.webdriver.firefox.webdriver import WebDriver так и не смог заупстить в Firefox, бразер открывается
+#  но ни чего не происходит
+
+from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.action_chains import ActionChains
 import time, unittest
 
@@ -12,7 +15,7 @@ def is_alert_present(wd):
 
 class test_group_add(unittest.TestCase):
     def setUp(self):
-        self.wd = WebDriver(capabilities={"marionette": False})
+        self.wd = WebDriver()
         self.wd.implicitly_wait(60)
     
     def test_test_group_add(self):
