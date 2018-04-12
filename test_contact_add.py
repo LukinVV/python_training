@@ -15,20 +15,14 @@ def is_alert_present(wd):
 
 class test_contact_add(unittest.TestCase):
     def setUp(self):
-        #chrome=webdriver.Chrome()
-        #self.wd=chrome
-        #self.wd = webdriver.Firefox(capabilities={"marionette": False, "proxy": {"proxyType": "DIRECT"}}, firefox_profile=fp)
-        firefox=webdriver.Firefox(capabilities={"marionette": False}) # запустил Firefox на рабочем компе
-        self.wd=firefox
+        chrome=webdriver.Chrome()
+        #firefox=webdriver.Firefox(capabilities={"marionette": False}) # запустил Firefox на рабочем компе
+        self.wd=chrome
         self.wd.implicitly_wait(60)
 
     def test_test_contact_add(self):
         wd = self.wd
-
-        self.open_start_page(wd)
         self.login(wd, user_name="admin", password="secret")
-        self.add_new_contact(wd)
-
         self.contact(wd, Contact(
             # ФИО+nickname
             firstname="Владислав",
@@ -63,10 +57,10 @@ class test_contact_add(unittest.TestCase):
             # заметка
             notes="testin test"
         ))
-
         self.logout(wd)
 
     def contact(self, wd, contact):
+        self.add_new_contact(wd)
         # ФИО+nickname
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -158,6 +152,7 @@ class test_contact_add(unittest.TestCase):
         wd.find_element_by_link_text("add new").click()
 
     def login(self, wd, user_name, password):
+        self.open_start_page(wd)
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         #wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
