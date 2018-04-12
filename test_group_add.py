@@ -16,8 +16,8 @@ def is_alert_present(wd):
 
 class test_group_add(unittest.TestCase):
     def setUp(self):
-        chrome = webdriver.Chrome()
-        self.wd = chrome
+        chrome=webdriver.Chrome() #"C:\Windows\SysWOW64\chromedriver.exe" - может пригодится
+        self.wd=chrome
         self.wd.implicitly_wait(60)
 
     def open_start_page(self, wd):
@@ -26,7 +26,7 @@ class test_group_add(unittest.TestCase):
     def login(self, wd, user_name, password):
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
-        wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
+        #wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click() - видмо лишнее
         wd.find_element_by_name("user").send_keys(user_name)
         wd.find_element_by_name("pass").click()
         wd.find_element_by_name("pass").clear()

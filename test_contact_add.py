@@ -15,8 +15,11 @@ def is_alert_present(wd):
 
 class test_contact_add(unittest.TestCase):
     def setUp(self):
-        chrome = webdriver.Chrome()
-        self.wd = chrome
+        #chrome=webdriver.Chrome()
+        #self.wd=chrome
+        #self.wd = webdriver.Firefox(capabilities={"marionette": False, "proxy": {"proxyType": "DIRECT"}}, firefox_profile=fp)
+        firefox=webdriver.Firefox(capabilities={"marionette": False}) # запустил Firefox на рабочем компе
+        self.wd=firefox
         self.wd.implicitly_wait(60)
 
     def test_test_contact_add(self):
