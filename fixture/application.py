@@ -8,7 +8,6 @@ class Application:
         chrome=webdriver.Chrome() #"C:\Windows\SysWOW64\chromedriver.exe" - может пригодится
         self.wd=chrome
         self.wd.implicitly_wait(60)
-
     def open_start_page(self):
             wd = self.wd
             wd.get("http://localhost/addressbook/")
