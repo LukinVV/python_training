@@ -5,7 +5,7 @@ class Group:
 
     def create_new(self, group):
         wd = self.app.wd
-        self.app.navigator.open_page_group()
+        self.open_page_group()
         # создаем группу
         wd.find_element_by_name("new").click()
         # вводим данные
@@ -20,4 +20,13 @@ class Group:
         wd.find_element_by_name("group_footer").send_keys(group.footer)  # название footer
         # завершили создание новой группы
         wd.find_element_by_name("submit").click()
-        self.app.navigator.return_to_page_group()
+        self.return_to_page_group()
+
+    def open_page_group(self):
+        wd = self.app.wd
+        # открытие страницы groups
+        wd.find_element_by_link_text("groups").click()
+
+    def return_to_page_group(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("group page").click()

@@ -7,7 +7,7 @@ class Contact:
 
     def create_new(self, contact):
         wd = self.app.wd
-        self.app.navigator.add_new_contact(wd)
+        self.add_new_contact(wd)
         # ФИО+nickname
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -94,3 +94,6 @@ class Contact:
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
         # прейти на страницу с контактами
         wd.find_element_by_link_text("home").click()
+
+    def add_new_contact(self, wd):
+        wd.find_element_by_link_text("add new").click()

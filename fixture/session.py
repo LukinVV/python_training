@@ -5,7 +5,7 @@ class SessionHelper:
 
     def login(self, user_name, password):
         wd = self.app.wd
-        self.app.navigator.open_start_page()
+        self.app.open_start_page()
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(user_name)
