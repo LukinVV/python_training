@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
+from fixture.session import SessionHelper
 
 class Application:
 
@@ -7,29 +8,15 @@ class Application:
         #firefox=webdriver.Firefox(capabilities={"marionette": False})
         chrome=webdriver.Chrome() #"C:\Windows\SysWOW64\chromedriver.exe" - может пригодится
         self.wd=chrome
+        self.session=SessionHelper(self)
         self.wd.implicitly_wait(60)
     def open_start_page(self):
             wd = self.wd
             wd.get("http://localhost/addressbook/")
 
-    def login(self, user_name, password):
-        wd = self.wd
-        self.open_start_page()
-        wd.find_element_by_name("user").click()
-        wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys(user_name)
-        wd.find_element_by_name("pass").click()
-        wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys(password)
-        wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
-
     def return_to_page_groups(self):
         wd = self.wd
         wd.find_element_by_link_text("group page").click()
-
-    def logout(self):
-        wd = self.wd
-        wd.find_element_by_link_text("Logout").click()
 
     def create_new_group(self, group):
         wd = self.wd

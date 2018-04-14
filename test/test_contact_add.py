@@ -11,7 +11,7 @@ def app(request):
     return fixture
 
 def test_test_contact_add(app):
-    app.login(user_name="admin", password="secret")
+    app.session.login(user_name="admin", password="secret")
     app.contact(Contact(
         # ФИО+nickname
         firstname="Владислав",
@@ -46,4 +46,4 @@ def test_test_contact_add(app):
         # заметка
         notes="testin test"
     ))
-    app.logout()
+    app.session.logout()
