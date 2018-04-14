@@ -10,9 +10,9 @@ def app(request):
     request.addfinalizer(fixture.destroy)
     return fixture
 
-def test_test_contact_add(app):
+def test_contact_add(app):
     app.session.login(user_name="admin", password="secret")
-    app.contact(Contact(
+    app.contact.create_new(Contact(
         # ФИО+nickname
         firstname="Владислав",
         middlename="",
