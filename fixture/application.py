@@ -7,7 +7,7 @@ class Application:
 
     def __init__(self):
         #firefox=webdriver.Firefox(capabilities={"marionette": False})
-        chrome=webdriver.Chrome() #"C:\Windows\SysWOW64\chromedriver.exe" - может пригодится
+        chrome=webdriver.Chrome("C:\Windows\SysWOW64\chromedriver.exe") #"C:\Windows\SysWOW64\chromedriver.exe" - может пригодится
         self.wd=chrome
         self.session=SessionHelper(self)
         self.group=Group(self)

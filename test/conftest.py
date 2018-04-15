@@ -5,7 +5,6 @@
 #available fixtures: pytestconfig, capfd, capsys, tmpdir, monkeypatch, recwarn
 #use 'py.test --fixtures [testpath]' for help on them.
 
-# если оставить
 import pytest
 from fixture.application import Application
 
