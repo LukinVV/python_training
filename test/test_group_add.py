@@ -10,4 +10,3 @@ def test_group_add(app):
     app.session.login(user_name="admin", password="secret")
     app.group.create_new(Group(name="NAME", header="HEADER", footer="FOOTER"))
     app.session.logout()
-
