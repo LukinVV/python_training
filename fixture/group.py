@@ -29,4 +29,13 @@ class Group:
 
     def return_to_page_group(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("group page").click()
+        self.open_page_group()
+
+    def del_first_group(self):
+        wd = self.app.wd
+        self.open_page_group()
+        #выбрать 1 группу
+        wd.find_element_by_name("selected[]").click()
+        #нажать на "удалить"
+        wd.find_element_by_name("delete").click()
+        self.return_to_page_group()

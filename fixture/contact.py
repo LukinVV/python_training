@@ -97,3 +97,13 @@ class Contact:
 
     def add_new_contact(self, wd):
         wd.find_element_by_link_text("add new").click()
+
+    def del_first_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("home").click()
+        #выбрать 1 контакт
+        wd.find_element_by_name("selected[]").click()
+        #нажать на "удалить"
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        wd.switch_to_alert().accept()
+        wd.find_element_by_link_text("home").click()
