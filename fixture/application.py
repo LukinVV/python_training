@@ -14,9 +14,5 @@ class Application:
         self.contact=Contact(self)
         self.wd.implicitly_wait(60)
 
-    def open_start_page(self):
-            wd = self.wd
-            wd.get("http://localhost/addressbook/")
-
     def destroy(self):
         self.wd.quit()
