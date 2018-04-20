@@ -1,10 +1,3 @@
-# если вынести в глобальную папку то перестает работать при запуске ВСЕХ тестов их папки с тестами
-#fixture
-#'app'
-#not found
-#available fixtures: pytestconfig, capfd, capsys, tmpdir, monkeypatch, recwarn
-#use 'py.test --fixtures [testpath]' for help on them.
-
 import pytest
 from fixture.application import Application
 
