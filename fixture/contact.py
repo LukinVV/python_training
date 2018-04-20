@@ -8,194 +8,96 @@ class Contact:
     def create_new(self, contact):
         wd = self.app.wd
         self.add_new_contact(wd)
+        self.fill_contact_form(contact)
+        # подтвердить ввод
+        wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        self.go_to_page_home()
+
+    def go_to_page_home(self):
+        # прейти на страницу с контактами
+        wd = self.app.wd
+        wd.find_element_by_link_text("home").click()
+
+    def change_field_value(self, field_name, text):
+        wd = self.app.wd
+        if text is not None:
+            wd.find_element_by_name(field_name).click()
+            wd.find_element_by_name(field_name).clear()
+            wd.find_element_by_name(field_name).send_keys(text)  # название имени группы
+
+
+    def fill_contact_form(self, contact):
+        wd = self.app.wd
         # ФИО+nickname
-        wd.find_element_by_name("firstname").click()
-        wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(contact.firstname)
-        wd.find_element_by_name("middlename").click()
-        wd.find_element_by_name("middlename").click()
-        wd.find_element_by_name("middlename").clear()
-        wd.find_element_by_name("middlename").send_keys(contact.middlename)
-        wd.find_element_by_name("lastname").click()
-        wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(contact.lastname)
-        wd.find_element_by_name("nickname").click()
-        wd.find_element_by_name("nickname").clear()
-        wd.find_element_by_name("nickname").send_keys(contact.nickname)
+        self.change_field_value("firstname", contact.firstname)
+        self.change_field_value("middlename", contact.middlename)
+        self.change_field_value("lastname", contact.lastname)
+        self.change_field_value("nickname", contact.nickname)
         # данные компании
-        wd.find_element_by_name("title").click()
-        wd.find_element_by_name("title").clear()
-        wd.find_element_by_name("title").send_keys(contact.title)
-        wd.find_element_by_name("company").click()
-        wd.find_element_by_name("company").clear()
-        wd.find_element_by_name("company").send_keys(contact.company)
+        self.change_field_value("title", contact.title)
+        self.change_field_value("company", contact.company)
         # адресс 1
-        wd.find_element_by_name("address").click()
-        wd.find_element_by_name("address").clear()
-        wd.find_element_by_name("address").send_keys(contact.address)
+        self.change_field_value("address", contact.address)
         # телефоны
-        wd.find_element_by_name("home").click()
-        wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys(contact.home)
-        wd.find_element_by_name("mobile").click()
-        wd.find_element_by_name("mobile").clear()
-        wd.find_element_by_name("mobile").send_keys(contact.mobile)
-        wd.find_element_by_name("work").click()
-        wd.find_element_by_name("work").clear()
-        wd.find_element_by_name("work").send_keys(contact.work)
-        wd.find_element_by_name("fax").click()
-        wd.find_element_by_name("fax").clear()
-        wd.find_element_by_name("fax").send_keys(contact.fax)
+        self.change_field_value("home", contact.home)
+        self.change_field_value("mobile", contact.mobile)
+        self.change_field_value("work", contact.work)
+        self.change_field_value("fax", contact.fax)
         # почта
-        wd.find_element_by_name("email").click()
-        wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys(contact.email)
-        wd.find_element_by_name("email2").click()
-        wd.find_element_by_name("email2").clear()
-        wd.find_element_by_name("email2").send_keys(contact.email2)
-        wd.find_element_by_name("email3").click()
-        wd.find_element_by_name("email3").clear()
-        wd.find_element_by_name("email3").send_keys(contact.email3)
-        wd.find_element_by_name("homepage").click()
-        wd.find_element_by_name("homepage").clear()
-        wd.find_element_by_name("homepage").send_keys(contact.homepage)
-        # выбор дат
+        self.change_field_value("email", contact.email)
+        self.change_field_value("email2", contact.email2)
+        self.change_field_value("email3", contact.email3)
+        self.change_field_value("homepage", contact.homepage)
+        # даты пока пропустить
+
+        #self.pick_year_data(contact)
+        self.change_field_value("byear", contact.byear)
+        self.change_field_value("ayear", contact.ayear)
+
+        # адресс 2
+        self.change_field_value("address2", contact.address2)
+        self.change_field_value("phone2", contact.phone2) # странно что "HOME" нашелся по имени "phone2"
+        # заметка
+        self.change_field_value("notes", contact.notes)
+
+
+#ругается на  TypeError: argument of type 'NoneType' is not iterable
+    def pick_year_data(self, contact):
+        wd = self.app.wd
         if not wd.find_element_by_xpath("//div[@id='content']/form/select[1]").is_selected():
             Select(wd.find_element_by_xpath("//div[@id='content']/form/select[1]")).select_by_visible_text(
-                contact.birthday_date)
+                    contact.birthday_date)
         if not wd.find_element_by_xpath("//div[@id='content']/form/select[2]").is_selected():
             Select(wd.find_element_by_xpath("//div[@id='content']/form/select[2]")).select_by_visible_text(
                 contact.birthday_month)
-        wd.find_element_by_name("byear").click()
-        wd.find_element_by_name("byear").clear()
-        wd.find_element_by_name("byear").send_keys(contact.byear)
         if not wd.find_element_by_xpath("//div[@id='content']/form/select[3]").is_selected():
             Select(wd.find_element_by_xpath("//div[@id='content']/form/select[3]")).select_by_visible_text(
                 contact.anniversary_date)
         if not wd.find_element_by_xpath("//div[@id='content']/form/select[4]").is_selected():
             Select(wd.find_element_by_xpath("//div[@id='content']/form/select[4]")).select_by_visible_text(
                 contact.anniversary_month)
-        wd.find_element_by_name("ayear").click()
-        wd.find_element_by_name("ayear").clear()
-        wd.find_element_by_name("ayear").send_keys(contact.ayear)
-        # адресс 2
-        wd.find_element_by_name("address2").click()
-        wd.find_element_by_name("address2").clear()
-        wd.find_element_by_name("address2").send_keys(contact.address2)
-        wd.find_element_by_name("phone2").click()  # странно что "HOME" нашелся по имени "phone2"
-        wd.find_element_by_name("phone2").clear()
-        wd.find_element_by_name("phone2").send_keys(contact.phone2)
-        wd.find_element_by_name("notes").click()
-        wd.find_element_by_name("notes").clear()
-        # заметка
-        wd.find_element_by_name("notes").send_keys(contact.notes)
-        # подтвердить ввод
-        wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
-        # прейти на страницу с контактами
-        wd.find_element_by_link_text("home").click()
+        self.change_field_value("ayear", contact.ayear)
 
     def add_new_contact(self, wd):
         wd.find_element_by_link_text("add new").click()
 
     def del_first_contact(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home").click()
+        self.go_to_page_home()
         #выбрать 1 контакт
         wd.find_element_by_name("selected[]").click()
         #нажать на "удалить"
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
-        wd.find_element_by_link_text("home").click()
+        self.go_to_page_home()
 
-    def mod_first_contact(self, contact):
+    def mod_first_contact(self, new_contact_data):
         wd = self.app.wd
-        wd.find_element_by_link_text("home").click()
+        self.go_to_page_home()
         #выбрать 1 контакт
         wd.find_element_by_name("selected[]").click()
         # выбрать кнопку для редоктирования
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
-        # ФИО+nickname
-        wd.find_element_by_name("firstname").click()
-        wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(contact.firstname)
-        wd.find_element_by_name("middlename").click()
-        wd.find_element_by_name("middlename").click()
-        wd.find_element_by_name("middlename").clear()
-        wd.find_element_by_name("middlename").send_keys(contact.middlename)
-        wd.find_element_by_name("lastname").click()
-        wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(contact.lastname)
-        wd.find_element_by_name("nickname").click()
-        wd.find_element_by_name("nickname").clear()
-        wd.find_element_by_name("nickname").send_keys(contact.nickname)
-        # данные компании
-        wd.find_element_by_name("title").click()
-        wd.find_element_by_name("title").clear()
-        wd.find_element_by_name("title").send_keys(contact.title)
-        wd.find_element_by_name("company").click()
-        wd.find_element_by_name("company").clear()
-        wd.find_element_by_name("company").send_keys(contact.company)
-        # адресс 1
-        wd.find_element_by_name("address").click()
-        wd.find_element_by_name("address").clear()
-        wd.find_element_by_name("address").send_keys(contact.address)
-        # телефоны
-        wd.find_element_by_name("home").click()
-        wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys(contact.home)
-        wd.find_element_by_name("mobile").click()
-        wd.find_element_by_name("mobile").clear()
-        wd.find_element_by_name("mobile").send_keys(contact.mobile)
-        wd.find_element_by_name("work").click()
-        wd.find_element_by_name("work").clear()
-        wd.find_element_by_name("work").send_keys(contact.work)
-        wd.find_element_by_name("fax").click()
-        wd.find_element_by_name("fax").clear()
-        wd.find_element_by_name("fax").send_keys(contact.fax)
-        # почта
-        wd.find_element_by_name("email").click()
-        wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys(contact.email)
-        wd.find_element_by_name("email2").click()
-        wd.find_element_by_name("email2").clear()
-        wd.find_element_by_name("email2").send_keys(contact.email2)
-        wd.find_element_by_name("email3").click()
-        wd.find_element_by_name("email3").clear()
-        wd.find_element_by_name("email3").send_keys(contact.email3)
-        wd.find_element_by_name("homepage").click()
-        wd.find_element_by_name("homepage").clear()
-        wd.find_element_by_name("homepage").send_keys(contact.homepage)
-        # выбор дат
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[1]").is_selected():
-            Select(wd.find_element_by_xpath("//div[@id='content']/form/select[1]")).select_by_visible_text(
-                contact.birthday_date)
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[2]").is_selected():
-            Select(wd.find_element_by_xpath("//div[@id='content']/form/select[2]")).select_by_visible_text(
-                contact.birthday_month)
-        wd.find_element_by_name("byear").click()
-        wd.find_element_by_name("byear").clear()
-        wd.find_element_by_name("byear").send_keys(contact.byear)
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[3]").is_selected():
-            Select(wd.find_element_by_xpath("//div[@id='content']/form/select[3]")).select_by_visible_text(
-                contact.anniversary_date)
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[4]").is_selected():
-            Select(wd.find_element_by_xpath("//div[@id='content']/form/select[4]")).select_by_visible_text(
-                contact.anniversary_month)
-        wd.find_element_by_name("ayear").click()
-        wd.find_element_by_name("ayear").clear()
-        wd.find_element_by_name("ayear").send_keys(contact.ayear)
-        # адресс 2
-        wd.find_element_by_name("address2").click()
-        wd.find_element_by_name("address2").clear()
-        wd.find_element_by_name("address2").send_keys(contact.address2)
-        wd.find_element_by_name("phone2").click()  # странно что "HOME" нашелся по имени "phone2"
-        wd.find_element_by_name("phone2").clear()
-        wd.find_element_by_name("phone2").send_keys(contact.phone2)
-        wd.find_element_by_name("notes").click()
-        wd.find_element_by_name("notes").clear()
-        # заметка
-        wd.find_element_by_name("notes").send_keys(contact.notes)
-        # подтвердить ввод
-        wd.find_element_by_name("update").click()
+        self.fill_contact_form(new_contact_data)
         # прейти на страницу с контактами
-        wd.find_element_by_link_text("home").click()
+        self.go_to_page_home()
