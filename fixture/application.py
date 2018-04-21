@@ -12,7 +12,7 @@ class Application:
         self.session=SessionHelper(self)
         self.group=Group(self)
         self.contact=Contact(self)
-        self.wd.implicitly_wait(30)
+        self.wd.implicitly_wait(5)
 
     def destroy(self):
         self.wd.quit()
@@ -23,3 +23,4 @@ class Application:
             return True
         except:
             return False
+
