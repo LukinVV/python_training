@@ -19,14 +19,6 @@ class Contact:
                 len( wd.find_elements_by_xpath("//input[@value='Send e-Mail']")) > 0):
             wd.find_element_by_link_text("home").click()
 
-    def change_field_value(self, field_name, text):
-        wd = self.app.wd
-        if text is not None:
-            wd.find_element_by_name(field_name).click()
-            wd.find_element_by_name(field_name).clear()
-            wd.find_element_by_name(field_name).send_keys(text)  # название имени группы
-
-
     def fill_contact_form(self, contact):
         wd = self.app.wd
         # ФИО+nickname
@@ -49,9 +41,12 @@ class Contact:
         self.change_field_value("email2", contact.email2)
         self.change_field_value("email3", contact.email3)
         self.change_field_value("homepage", contact.homepage)
-        # даты пока пропустить
-        #self.pick_year_data(contact)
+        #даты
+        self.pick_year_data("//div[@id='content']/form/select[1]", contact.birthday_date)
+        self.pick_year_data("//div[@id='content']/form/select[2]", contact.birthday_month)
         self.change_field_value("byear", contact.byear)
+        self.pick_year_data("//div[@id='content']/form/select[3]", contact.anniversary_date)
+        self.pick_year_data("//div[@id='content']/form/select[4]", contact.anniversary_month)
         self.change_field_value("ayear", contact.ayear)
         # адресс 2
         self.change_field_value("address2", contact.address2)
@@ -59,18 +54,17 @@ class Contact:
         # заметка
         self.change_field_value("notes", contact.notes)
 
-
-    #ругается на  TypeError: argument of type 'NoneType' is not iterable
-    def pick_year_data(self, contact):
+    def change_field_value(self, field_name, text):
         wd = self.app.wd
-        Select(wd.find_element_by_xpath("//div[@id='content']/form/select[1]")).select_by_visible_text(
-            contact.birthday_date)
-        Select(wd.find_element_by_xpath("//div[@id='content']/form/select[2]")).select_by_visible_text(
-                contact.birthday_month)
-        Select(wd.find_element_by_xpath("//div[@id='content']/form/select[3]")).select_by_visible_text(
-                contact.anniversary_date)
-        Select(wd.find_element_by_xpath("//div[@id='content']/form/select[4]")).select_by_visible_text(
-                contact.anniversary_month)
+        if text is not None:
+            wd.find_element_by_name(field_name).click()
+            wd.find_element_by_name(field_name).clear()
+            wd.find_element_by_name(field_name).send_keys(text)
+
+    def pick_year_data(self, xpath_name, text):
+        wd = self.app.wd
+        if text is not None:
+            Select(wd.find_element_by_xpath(xpath_name)).select_by_visible_text(text)
 
     def add_new_contact(self, wd):
         wd.find_element_by_link_text("add new").click()
