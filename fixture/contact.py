@@ -95,3 +95,8 @@ class Contact:
         self.fill_contact_form(new_contact_data)
         # прейти на страницу с контактами
         self.go_to_page_home()
+
+    def count(self):
+        wd = self.app.wd
+        self.go_to_page_home()
+        return len(wd.find_elements_by_name("selected[]"))
