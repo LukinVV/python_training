@@ -14,9 +14,10 @@ class Contact:
         self.go_to_page_home()
 
     def go_to_page_home(self):
-        # прейти на страницу с контактами
         wd = self.app.wd
-        wd.find_element_by_link_text("home").click()
+        if not (wd.current_url.endswith("/addressbook/") and
+                len( wd.find_elements_by_xpath("//input[@value='Send e-Mail']")) > 0):
+            wd.find_element_by_link_text("home").click()
 
     def change_field_value(self, field_name, text):
         wd = self.app.wd
@@ -52,7 +53,6 @@ class Contact:
         #self.pick_year_data(contact)
         self.change_field_value("byear", contact.byear)
         self.change_field_value("ayear", contact.ayear)
-
         # адресс 2
         self.change_field_value("address2", contact.address2)
         self.change_field_value("phone2", contact.phone2) # странно что "HOME" нашелся по имени "phone2"

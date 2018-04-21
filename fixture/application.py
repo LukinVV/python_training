@@ -12,7 +12,7 @@ class Application:
         self.session=SessionHelper(self)
         self.group=Group(self)
         self.contact=Contact(self)
-        self.wd.implicitly_wait(5)
+        #self.wd.implicitly_wait(5) - для учебного приложения не нужно
 
     def destroy(self):
         self.wd.quit()
