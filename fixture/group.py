@@ -1,7 +1,9 @@
-class Group:
+from model.group import Group
+
+class GroupHelper:
 
     def __init__(self, app):
-        self.app=app
+        self.app = app
 
     def create_new(self, group):
         wd = self.app.wd
@@ -34,9 +36,9 @@ class Group:
     def del_first_group(self):
         wd = self.app.wd
         self.open_page_group()
-        #выбрать 1 группу
+        # выбрать 1 группу
         wd.find_element_by_name("selected[]").click()
-        #нажать на "удалить"
+        # нажать на "удалить"
         wd.find_element_by_name("delete").click()
         self.open_page_group()
 
@@ -59,3 +61,17 @@ class Group:
         wd = self.app.wd
         self.open_page_group()
         return len(wd.find_elements_by_name("selected[]"))
+
+    def get_list_group(self):
+        wd = self.app.wd
+        self.open_page_group()
+        groups = []
+        for element in wd.find_elements_by_css_selector("span.group"):
+            text = element.text
+            id = element.find_element_by_name("selected[]").get_attribute("value")
+            groups.append(Group(name=text, id=id))
+        return groups
+
+
+
+

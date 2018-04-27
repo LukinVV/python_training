@@ -2,6 +2,8 @@
 from model.contact import Contact
 
 def test_contact_add(app):
+    old_contact_list = app.contact.get_list_contact()
+    print("\n".join(map(str, old_contact_list)))
     app.contact.create_new(Contact(
         # ФИО+nickname
         firstname="Владислав",
@@ -36,3 +38,6 @@ def test_contact_add(app):
         # заметка
         notes="testin test"
     ))
+    new_contact_list = app.contact.get_list_contact()
+    assert len(old_contact_list) + 1 == len(new_contact_list)
+

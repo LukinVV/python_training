@@ -1,7 +1,7 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
-from fixture.group import Group
-from fixture.contact import Contact
+from fixture.group import GroupHelper
+from fixture.contact import ContactHelper
 
 class Application:
 
@@ -10,8 +10,8 @@ class Application:
         chrome=webdriver.Chrome("C:\Windows\SysWOW64\chromedriver.exe") #"C:\Windows\SysWOW64\chromedriver.exe" - может пригодится
         self.wd=chrome
         self.session=SessionHelper(self)
-        self.group=Group(self)
-        self.contact=Contact(self)
+        self.group=GroupHelper(self)
+        self.contact=ContactHelper(self)
         #self.wd.implicitly_wait(5) - для учебного приложения не нужно
 
     def destroy(self):
