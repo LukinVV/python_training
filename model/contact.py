@@ -32,4 +32,4 @@ class Contact:
         self.id = id
 
     def __repr__(self):
-        return "lastname=%s firstname=%s id=%s" % (self.lastname, self.firstname, self.id)
+        return "[lastname= %s ; firstname= %s ; id= %s]" % (self.lastname, self.firstname, self.id)

@@ -103,7 +103,7 @@ class ContactHelper:
         for element in wd.find_elements_by_name("entry"):
             lastname = element.find_element_by_xpath("//tr/td[2]").text
             firstname = element.find_element_by_xpath("//tr/td[3]").text
-            id = element.find_element_by_xpath("//tr//input[@id]").get_attribute("id")
+            # странно что складывал по element.find_element_by_xpath("//td/input").get_attribute("id") одно и тоже значение
+            id = element.find_element_by_name("selected[]").get_attribute("value")
             contants.append(Contact(lastname=lastname, firstname=firstname, id=id))
         return contants
-
