@@ -3,6 +3,7 @@ from model.group import Group
 
 def test_empty_group_add(app):
     old_group_list = app.group.get_list_group()
+    print("\n".join(map(str, old_group_list)))
     app.group.create_new(Group(name="", header="", footer=""))
     new_group_list=app.group.get_list_group()
     assert len(old_group_list)+1 == len(new_group_list)

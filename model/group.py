@@ -6,3 +6,6 @@ class Group:
         self.header=header
         self.footer=footer
         self.id=id
+
+    def __repr__(self):
+        return "name=%s id=%s"%(self.name, self.id)
