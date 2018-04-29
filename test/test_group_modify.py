@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from model.group import Group
 
 
@@ -8,13 +7,12 @@ def test_mod_first_group_name(app):
         app.group.create_new(Group(name="NEW"))
     old_group_list = app.group.get_list_group()
     group = Group(name="NEW NAME")
-    group.id=old_group_list[0].id
+    group.id = old_group_list[0].id
     app.group.mod_first_group(group)
-    new_group_list=app.group.get_list_group()
+    new_group_list = app.group.get_list_group()
     assert len(old_group_list) == len(new_group_list)
     old_group_list[0] = group
     assert sorted(old_group_list, key=Group.id_or_max) == sorted(new_group_list, key=Group.id_or_max)
-
 
 # def test_mod_first_group_header(app):
 #     if app.group.count() == 0:

@@ -4,7 +4,7 @@ from model.group import Group
 
 def test_empty_group_add(app):
     old_group_list = app.group.get_list_group()
-    #print("\n".join(map(str, old_group_list)))
+    # print("\n".join(map(str, old_group_list)))
     group = Group(name="", header="", footer="")
     app.group.create_new(group)
     new_group_list = app.group.get_list_group()

@@ -1,10 +1,11 @@
 from selenium.webdriver.support.ui import Select
 from model.contact import Contact
 
+
 class ContactHelper:
 
     def __init__(self, app):
-        self.app=app
+        self.app = app
 
     def create_new(self, contact):
         wd = self.app.wd
@@ -17,7 +18,7 @@ class ContactHelper:
     def go_to_page_home(self):
         wd = self.app.wd
         if not (wd.current_url.endswith("/addressbook/") and
-                len( wd.find_elements_by_xpath("//input[@value='Send e-Mail']")) > 0):
+                len(wd.find_elements_by_xpath("//input[@value='Send e-Mail']")) > 0):
             wd.find_element_by_link_text("home").click()
 
     def fill_contact_form(self, contact):
@@ -42,7 +43,7 @@ class ContactHelper:
         self.change_field_value("email2", contact.email2)
         self.change_field_value("email3", contact.email3)
         self.change_field_value("homepage", contact.homepage)
-        #даты
+        # даты
         self.pick_year_data("//div[@id='content']/form/select[1]", contact.birthday_date)
         self.pick_year_data("//div[@id='content']/form/select[2]", contact.birthday_month)
         self.change_field_value("byear", contact.byear)
@@ -51,7 +52,7 @@ class ContactHelper:
         self.change_field_value("ayear", contact.ayear)
         # адресс 2
         self.change_field_value("address2", contact.address2)
-        self.change_field_value("phone2", contact.phone2) # странно что "HOME" нашелся по имени "phone2"
+        self.change_field_value("phone2", contact.phone2)  # странно что "HOME" нашелся по имени "phone2"
         # заметка
         self.change_field_value("notes", contact.notes)
 
@@ -73,9 +74,9 @@ class ContactHelper:
     def del_first_contact(self):
         wd = self.app.wd
         self.go_to_page_home()
-        #выбрать 1 контакт
+        # выбрать 1 контакт
         wd.find_element_by_name("selected[]").click()
-        #нажать на "удалить"
+        # нажать на "удалить"
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
         self.go_to_page_home()
@@ -83,11 +84,12 @@ class ContactHelper:
     def mod_first_contact(self, new_contact_data):
         wd = self.app.wd
         self.go_to_page_home()
-        #выбрать 1 контакт
+        # выбрать 1 контакт
         wd.find_element_by_name("selected[]").click()
         # выбрать кнопку для редоктирования
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
         self.fill_contact_form(new_contact_data)
+        wd.find_element_by_name("update").click()
         # прейти на страницу с контактами
         self.go_to_page_home()
 
