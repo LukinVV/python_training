@@ -7,13 +7,17 @@ def test_empty_group_add(app):
     # print("\n".join(map(str, old_group_list)))
     group = Group(name="", header="", footer="")
     app.group.create_new(group)
+    assert len(old_group_list) + 1 == app.group.count()
     new_group_list = app.group.get_list_group()
-    assert len(old_group_list) + 1 == len(new_group_list)
     old_group_list.append(group)
     assert sorted(old_group_list, key=Group.id_or_max) == sorted(new_group_list, key=Group.id_or_max)
 
+
 # def test_group_add(app):
 #     old_group_list = app.group.get_list_group()
-#     app.group.create_new(Group(name="NAME", header="HEADER", footer="FOOTER"))
+#     group = Group(name="NAME", header="HEADER", footer="FOOTER")
+#     app.group.create_new(group)
 #     new_group_list = app.group.get_list_group()
 #     assert len(old_group_list) + 1 == len(new_group_list)
+#     old_group_list.append(group)
+#     assert sorted(old_group_list, key=Group.id_or_max) == sorted(new_group_list, key=Group.id_or_max)

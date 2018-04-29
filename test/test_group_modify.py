@@ -13,8 +13,8 @@ def test_mod_first_group_name(app):
         group.name = old_group_list[0].name
     app.group.mod_first_group(group)
     #print(sorted(old_group_list, key=Group.id_or_max))
+    assert len(old_group_list) == app.group.count()
     new_group_list = app.group.get_list_group()
-    assert len(old_group_list) == len(new_group_list)
     old_group_list[0] = group
     assert sorted(old_group_list, key=Group.id_or_max) == sorted(new_group_list, key=Group.id_or_max)
     # print(sorted(new_group_list, key=Group.id_or_max))
