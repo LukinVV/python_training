@@ -104,6 +104,6 @@ class ContactHelper:
             lastname = element.find_element_by_xpath("//tr/td[2]").text
             firstname = element.find_element_by_xpath("//tr/td[3]").text
             # странно что складывал по element.find_element_by_xpath("//td/input").get_attribute("id") одно и тоже значение
-            id = element.find_element_by_name("selected[]").get_attribute("value")
+            id = element.find_element_by_name("selected[]").get_attribute("id")
             contants.append(Contact(lastname=lastname, firstname=firstname, id=id))
         return contants
