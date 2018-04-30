@@ -10,7 +10,7 @@ def test_contact_add(app):
         # ФИО+nickname
         firstname="Владислав",
         middlename="",
-        lastname="sadasda",
+        lastname="Лукин",
         nickname="tester",
         # данные компании
         title="junior",
