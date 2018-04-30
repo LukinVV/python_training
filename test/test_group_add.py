@@ -22,7 +22,7 @@ def test_group_add(app):
     app.group.create_new(group)
     assert len(old_group_list) + 1 == app.group.count()
     new_group_list = app.group.get_list_group()
-    print(sorted(new_group_list, key=Group.id_or_max))
+    #print(sorted(new_group_list, key=Group.id_or_max))
     old_group_list.append(group)
     #print(sorted(old_group_list, key=Group.id_or_max))
     assert sorted(old_group_list, key=Group.id_or_max) == sorted(new_group_list, key=Group.id_or_max)
