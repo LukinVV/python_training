@@ -73,21 +73,31 @@ class ContactHelper:
         wd.find_element_by_link_text("add new").click()
 
     def del_first_contact(self):
+        self.del_contact_by_index(0)
+
+    def del_contact_by_index(self, index):
         wd = self.app.wd
         self.go_to_page_home()
         # выбрать 1 контакт
-        wd.find_element_by_name("selected[]").click()
+        self.select_contact(index)
         # нажать на "удалить"
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
         self.go_to_page_home()
         self.contact_cash = None
 
-    def mod_first_contact(self, new_contact_data):
+    def select_contact(self, index):
+        wd = self.app.wd
+        wd.find_elements_by_name("selected[]")[index].click()
+
+    def select_first_contact(self, index):
+        self.select_contact(0)
+
+    def mod_contact_by_index(self, index, new_contact_data):
         wd = self.app.wd
         self.go_to_page_home()
         # выбрать 1 контакт
-        wd.find_element_by_name("selected[]").click()
+        self.select_contact(index)
         # выбрать кнопку для редоктирования
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
         self.fill_contact_form(new_contact_data)
@@ -95,6 +105,9 @@ class ContactHelper:
         # прейти на страницу с контактами
         self.go_to_page_home()
         self.contact_cash = None
+
+    def mod_first_contact(self):
+        self.mod_contact_by_index(0)
 
     def count(self):
         wd = self.app.wd
@@ -109,9 +122,10 @@ class ContactHelper:
             self.go_to_page_home()
             self.contact_cash = []
             for element in wd.find_elements_by_name("entry"):
-                lastname = element.find_element_by_xpath("//tr/td[2]").text
-                firstname = element.find_element_by_xpath("//tr/td[3]").text
-                # странно что складывал по element.find_element_by_xpath("//td/input").get_attribute("id") одно и тоже значение
+                # lastname = element.find_element_by_xpath("//tr/td[2]").text
+                # firstname = element.find_element_by_xpath("//tr/td[3]").text
+                lastname = element.find_element_by_css_selector("td:nth-of-type(2)").text
+                firstname = element.find_element_by_css_selector("td:nth-of-type(3)").text
                 id = element.find_element_by_name("selected[]").get_attribute("id")
-                self.contact_cash.append(Contact(lastname=lastname, firstname=firstname, id=id))
+                self.contact_cash.append(Contact(firstname=firstname, lastname=lastname, id=id))
         return self.contact_cash
