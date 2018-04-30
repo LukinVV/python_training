@@ -36,19 +36,25 @@ class GroupHelper:
             wd.find_element_by_link_text("groups").click()
 
     def del_first_group(self):
+        self.del_group_by_index(0)
+
+    def del_group_by_index(self, index):
         wd = self.app.wd
         self.open_page_group()
         # выбрать 1 группу
-        wd.find_element_by_name("selected[]").click()
+        self.select_group(index)
         # нажать на "удалить"
         wd.find_element_by_name("delete").click()
         self.open_page_group()
         self.group_cash = None
 
-    def mod_first_group(self, new_group_data):
+    def mod_firt_group(self):
+        self.mod_group_by_index(0)
+
+    def mod_group_by_index(self, index, new_group_data):
         wd = self.app.wd
         self.open_page_group()
-        self.select_first_group()
+        self.select_group(index)
         wd.find_element_by_name("edit").click()
         # вводим новые данные
         self.fill_group_form(new_group_data)
@@ -58,8 +64,11 @@ class GroupHelper:
         self.group_cash = None
 
     def select_first_group(self):
+        self.select_group(0)
+
+    def select_group(self, index):
         wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        wd.find_elements_by_name("selected[]")[index].click()
 
     def count(self):
         wd = self.app.wd
