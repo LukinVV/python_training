@@ -103,8 +103,10 @@ class ContactHelper:
         self.go_to_page_home()
         contants = []
         for element in wd.find_elements_by_name("entry"):
-            lastname = element.find_element_by_xpath("//tr/td[2]").text
-            firstname = element.find_element_by_xpath("//tr/td[3]").text
+            # lastname = element.find_element_by_xpath("//tr/td[2]").text
+            # firstname = element.find_element_by_xpath("//tr/td[3]").text
+            lastname = element.find_element_by_css_selector("td:nth-of-type(2)").text
+            firstname = element.find_element_by_css_selector("td:nth-of-type(3)").text
             # странно что складывал по element.find_element_by_xpath("//td/input").get_attribute("id") одно и тоже значение
             id = element.find_element_by_name("selected[]").get_attribute("id")
             contants.append(Contact(lastname=lastname, firstname=firstname, id=id))
