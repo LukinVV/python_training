@@ -14,6 +14,7 @@ class ContactHelper:
         # подтвердить ввод
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
         self.go_to_page_home()
+        self.contact_cash = None
 
     def go_to_page_home(self):
         wd = self.app.wd
@@ -80,6 +81,7 @@ class ContactHelper:
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
         self.go_to_page_home()
+        self.contact_cash = None
 
     def mod_first_contact(self, new_contact_data):
         wd = self.app.wd
@@ -92,22 +94,24 @@ class ContactHelper:
         wd.find_element_by_name("update").click()
         # прейти на страницу с контактами
         self.go_to_page_home()
+        self.contact_cash = None
 
     def count(self):
         wd = self.app.wd
         self.go_to_page_home()
         return len(wd.find_elements_by_name("selected[]"))
 
+    contact_cash = None
+
     def get_list_contact(self):
-        wd = self.app.wd
-        self.go_to_page_home()
-        contants = []
-        for element in wd.find_elements_by_name("entry"):
-            # lastname = element.find_element_by_xpath("//tr/td[2]").text
-            # firstname = element.find_element_by_xpath("//tr/td[3]").text
-            lastname = element.find_element_by_css_selector("td:nth-of-type(2)").text
-            firstname = element.find_element_by_css_selector("td:nth-of-type(3)").text
-            # странно что складывал по element.find_element_by_xpath("//td/input").get_attribute("id") одно и тоже значение
-            id = element.find_element_by_name("selected[]").get_attribute("id")
-            contants.append(Contact(lastname=lastname, firstname=firstname, id=id))
-        return contants
+        if self.contact_cash is None:
+            wd = self.app.wd
+            self.go_to_page_home()
+            self.contact_cash = []
+            for element in wd.find_elements_by_name("entry"):
+                lastname = element.find_element_by_css_selector("td:nth-of-type(2)").text
+                firstname = element.find_element_by_css_selector("td:nth-of-type(3)").text
+                # странно что складывал по element.find_element_by_xpath("//td/input").get_attribute("id") одно и тоже значение
+                id = element.find_element_by_name("selected[]").get_attribute("id")
+                self.contact_cash.append(Contact(lastname=lastname, firstname=firstname, id=id))
+        return self.contact_cash
