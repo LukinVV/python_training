@@ -48,8 +48,8 @@ class GroupHelper:
         self.open_page_group()
         self.group_cash = None
 
-    def mod_firt_group(self):
-        self.mod_group_by_index(0)
+    def mod_firt_group(self, new_group_data):
+        self.mod_group_by_index(0, new_group_data)
 
     def mod_group_by_index(self, index, new_group_data):
         wd = self.app.wd

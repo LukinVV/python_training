@@ -90,24 +90,22 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
 
-    def select_first_contact(self, index):
+    def select_first_contact(self):
         self.select_contact(0)
 
     def mod_contact_by_index(self, index, new_contact_data):
         wd = self.app.wd
         self.go_to_page_home()
-        # выбрать 1 контакт
-        self.select_contact(index)
         # выбрать кнопку для редоктирования
-        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
         self.fill_contact_form(new_contact_data)
         wd.find_element_by_name("update").click()
         # прейти на страницу с контактами
         self.go_to_page_home()
         self.contact_cash = None
 
-    def mod_first_contact(self):
-        self.mod_contact_by_index(0)
+    def mod_first_contact(self, new_contact_data):
+        self.mod_contact_by_index(0, new_contact_data)
 
     def count(self):
         wd = self.app.wd
