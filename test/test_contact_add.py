@@ -18,9 +18,9 @@ def test_contact_add(app):
         # адресс 1
         address="Moscow",
         # телефоны
-        home="8495123456",
-        mobile="79265314806",
-        work="89265314806",
+        home_phone="8495123456",
+        mobile_phone="79265314806",
+        work_phone="89265314806",
         fax="+79265314806",
         # почта
         email="lukinvv@inbox.ru",
@@ -36,7 +36,7 @@ def test_contact_add(app):
         ayear="2000",
         # адресс 2
         address2="Россия",
-        phone2="STREET",
+        secondary_phone="199144654456",
         # заметка
         notes="testin test"
     )
