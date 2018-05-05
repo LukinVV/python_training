@@ -9,10 +9,13 @@ fixture = None
 def app(request):
     global fixture
     if fixture is None:
-        fixture = Application()
+        browser = request.config.getoption("--browser")
+        base_url = request.config.getoption("--baseUrl")
+        fixture = Application(browser=browser, base_url=base_url)
     elif not fixture.is_vald():
-        fixture = Application()
-
+        browser = request.config.getoption("--browser")
+        base_url = request.config.getoption("--baseUrl")
+        fixture = Application(browser=browser, base_url=base_url)
     fixture.session.ensure_login(user_name="admin", password="secret")
     return fixture
 
@@ -22,6 +25,9 @@ def stop(request):
     def end():
         fixture.session.ensure_logout()
         fixture.destroy()
-
     request.addfinalizer(end)
     return fixture
+
+def pytest_addoption(parser):
+    parser.addoption("--browser", action="store", default="chrome")
+    parser.addoption("--baseUrl", action="store", default="http://localhost/addressbook/")

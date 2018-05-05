@@ -5,7 +5,7 @@ class SessionHelper:
 
     def login(self, user_name, password):
         wd = self.app.wd
-        self.open_start_page()
+        self.app.open_start_page()
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(user_name)
@@ -14,9 +14,6 @@ class SessionHelper:
         wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
 
-    def open_start_page(self):
-        wd = self.app.wd
-        wd.get("http://localhost/addressbook/")
 
     def logout(self):
         wd = self.app.wd
