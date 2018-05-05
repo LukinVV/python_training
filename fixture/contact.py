@@ -180,7 +180,7 @@ class ContactHelper:
                        email=email, email2=email2, email3=email3, work_phone=work_phone,
                        mobile_phone=mobile_phone, fax=fax, secondary_phone=secondary_phone)
 
-    def get_contact_from_view_page(self, index):
+    def get_contact_from_view_page_by_index(self, index):
         wd = self.app.wd
         self.open_contact_view_by_index(index)
         text = wd.find_element_by_id("content").text
@@ -188,10 +188,22 @@ class ContactHelper:
             home_phone = re.search("H: (.*)", text).group(1)
         except:
             home_phone = None
-        work_phone = re.search("W: (.*)", text).group(1)
-        mobile_phone = re.search("M: (.*)", text).group(1)
-        fax = re.search("F: (.*)", text).group(1)
-        secondary_phone = re.search("P: (.*)", text).group(1)
+        try:
+            work_phone = re.search("W: (.*)", text).group(1)
+        except:
+            work_phone = None
+        try:
+            mobile_phone = re.search("M: (.*)", text).group(1)
+        except:
+            mobile_phone = None
+        try:
+            fax = re.search("F: (.*)", text).group(1)
+        except:
+            fax = None
+        try:
+            secondary_phone = re.search("P: (.*)", text).group(1)
+        except:
+            secondary_phone=None
         return Contact(home_phone=home_phone, work_phone=work_phone,
                    mobile_phone=mobile_phone, fax = fax, secondary_phone=secondary_phone)
 
