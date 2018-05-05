@@ -80,30 +80,33 @@ class ContactHelper:
         wd = self.app.wd
         self.go_to_page_home()
         # выбрать 1 контакт
-        self.select_contact(index)
+        self.select_contact_by_index(index)
         # нажать на "удалить"
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
         self.go_to_page_home()
         self.contact_cash = None
 
-    def select_contact(self, index):
+    def select_contact_by_index(self, index):
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
 
     def select_first_contact(self):
-        self.select_contact(0)
+        self.select_contact_by_index(0)
 
     def mod_contact_by_index(self, index, new_contact_data):
         wd = self.app.wd
         self.go_to_page_home()
-        # выбрать кнопку для редоктирования
-        wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
+        self.select_edit_button_by_index(index)
         self.fill_contact_form(new_contact_data)
         wd.find_element_by_name("update").click()
         # прейти на страницу с контактами
         self.go_to_page_home()
         self.contact_cash = None
+
+    def select_edit_button_by_index(self, index):
+        wd = self.app.wd
+        wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
 
     def mod_first_contact(self, new_contact_data):
         self.mod_contact_by_index(0, new_contact_data)
