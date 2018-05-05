@@ -46,11 +46,11 @@ class ContactHelper:
         self.change_field_value("email3", contact.email3)
         self.change_field_value("homepage", contact.homepage)
         # даты
-        self.pick_year_data("//div[@id='content']/form/select[1]", contact.birthday_date)
-        self.pick_year_data("//div[@id='content']/form/select[2]", contact.birthday_month)
+        self.pick_year_data("//select[@name='bday']", contact.birthday_date)
+        self.pick_year_data("//select[@name='bmonth']", contact.birthday_month)
         self.change_field_value("byear", contact.byear)
-        self.pick_year_data("//div[@id='content']/form/select[3]", contact.anniversary_date)
-        self.pick_year_data("//div[@id='content']/form/select[4]", contact.anniversary_month)
+        self.pick_year_data("//select[@name='aday']", contact.anniversary_date)
+        self.pick_year_data("//select[@name='amonth']", contact.anniversary_month)
         self.change_field_value("ayear", contact.ayear)
         # адресс 2
         self.change_field_value("address2", contact.address2)
@@ -68,7 +68,7 @@ class ContactHelper:
     def pick_year_data(self, xpath_name, text):
         wd = self.app.wd
         if text is not None:
-            Select(wd.find_element_by_xpath(xpath_name)).select_by_visible_text(text)
+            Select(wd.find_element_by_xpath(xpath_name)).select_by_value(text)
 
     def add_new_contact(self, wd):
         wd.find_element_by_link_text("add new").click()
