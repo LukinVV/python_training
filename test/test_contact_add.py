@@ -4,13 +4,13 @@ from model.contact import Contact
 
 def test_contact_add(app):
     old_contact_list = app.contact.get_list_contact()
-    print(sorted(old_contact_list, key=Contact.id_or_max))
+    #print(sorted(old_contact_list, key=Contact.id_or_max))
     # print("\n".join(map(str, old_contact_list)))
     contact = Contact(
         # ФИО+nickname
         firstname="Владислав",
         middlename="",
-        lastname="sadasda",
+        lastname="Lukin",
         nickname="tester",
         # данные компании
         title="junior",
@@ -18,9 +18,9 @@ def test_contact_add(app):
         # адресс 1
         address="Moscow",
         # телефоны
-        home_phone="8495123456",
-        mobile_phone="79265314806",
-        work_phone="89265314806",
+        home_phone="7495123456",
+        mobile_phone="8",
+        work_phone="+7777",
         fax="+79265314806",
         # почта
         email="lukinvv@inbox.ru",

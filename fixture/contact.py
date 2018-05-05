@@ -160,7 +160,7 @@ class ContactHelper:
         cell = row.find_elements_by_tag_name('td')[6]
         cell.find_element_by_tag_name('a').click()
 
-    def get_contact_info_from_edit_page(self, index):
+    def get_contact_info_from_edit_page_by_index(self, index):
         wd = self.app.wd
         self.open_contact_to_edit_by_index(index)
         firstname = wd.find_element_by_name("firstname").get_attribute("value")
