@@ -1,7 +1,7 @@
 from model.group import Group
 
-def test_group_add(app, data_groups):
-    group = data_groups
+def test_group_add(app, json_groups):
+    group = json_groups
     old_group_list = app.group.get_list_group()
     # print("\n".join(map(str, old_group_list)))
     app.group.create_new(group)
