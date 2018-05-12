@@ -45,7 +45,7 @@ def get_random_months():
     return "".join([random.choice(months)])
 
 
-contact = [Contact(
+test_data = [Contact(
     # ФИО+nickname
     firstname=get_random_name(),
     middlename=get_random_name(),

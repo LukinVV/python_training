@@ -28,8 +28,8 @@ def random_string(prefix, max_len):
 
 
 # testdata
-group = [Group(name="", header="", footer="")]+[Group(name=random_string('name', 10),
-                   header=random_string('header', 20), footer=random_string('footer', 20)) for i in range(n)]
+test_data = [Group(name="", header="", footer="")] + [Group(name=random_string('name', 10),
+                                                            header=random_string('header', 20), footer=random_string('footer', 20)) for i in range(n)]
 
 # group_new = [Group(name=name, header=header, footer=footer)
 #              for name in ["", random_string('name', 10)]
@@ -39,4 +39,4 @@ group = [Group(name="", header="", footer="")]+[Group(name=random_string('name',
 
 file = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', f)
 with open(file, 'w') as out:
-    out.write(json.dumps(group, default=lambda x: x.__dict__, indent=2))
+    out.write(json.dumps(test_data, default=lambda x: x.__dict__, indent=2))

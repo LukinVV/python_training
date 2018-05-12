@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-from data.group_add import group_new
-import pytest
 from model.group import Group
 
-
-@pytest.mark.parametrize("group", group_new, ids=[repr(x) for x in group_new])
-def test_group_add(app, group):
+def test_group_add(app, data_groups):
+    group = data_groups
     old_group_list = app.group.get_list_group()
     # print("\n".join(map(str, old_group_list)))
     app.group.create_new(group)
