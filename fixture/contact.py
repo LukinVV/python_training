@@ -187,28 +187,54 @@ class ContactHelper:
         wd = self.app.wd
         self.open_contact_view_by_index(index)
         text = wd.find_element_by_id("content").text
-        try:
+        # try:
+        #     home_phone = re.search("H: (.*)", text).group(1)
+        # except:
+        #     home_phone = None
+        # try:
+        #     work_phone = re.search("W: (.*)", text).group(1)
+        # except:
+        #     work_phone = None
+        # try:
+        #     mobile_phone = re.search("M: (.*)", text).group(1)
+        # except:
+        #     mobile_phone = None
+        # try:
+        #     fax = re.search("F: (.*)", text).group(1)
+        # except:
+        #     fax = None
+        # try:
+        #     secondary_phone = re.search("P: (.*)", text).group(1)
+        # except:
+        #     secondary_phone=None
+        # home_phone = re.search("H: (.*)", text, re.IGNORECASE).group(1)
+        # work_phone = re.search("W: (.*)", text, re.IGNORECASE).group(1)
+        # mobile_phone = re.search("M: (.*)", text, re.IGNORECASE).group(1)
+        # fax = re.search("F: (.*)", text, re.IGNORECASE).group(1)
+        # secondary_phone = re.search("P: (.*)", text, re.IGNORECASE).group(1)
+        home_phone = re.search("H: (.*)", text)
+        if home_phone is not None:
             home_phone = re.search("H: (.*)", text).group(1)
-        except:
-            home_phone = None
-        try:
+        work_phone = re.search("W: (.*)", text)
+        if work_phone is not None:
             work_phone = re.search("W: (.*)", text).group(1)
-        except:
-            work_phone = None
-        try:
+        mobile_phone = re.search("M: (.*)", text)
+        if mobile_phone is not None:
             mobile_phone = re.search("M: (.*)", text).group(1)
-        except:
-            mobile_phone = None
-        try:
+        fax = re.search("F: (.*)", text)
+        if fax is not None:
             fax = re.search("F: (.*)", text).group(1)
-        except:
-            fax = None
-        try:
+        secondary_phone = re.search("P: (.*)", text)
+        if secondary_phone is not None:
             secondary_phone = re.search("P: (.*)", text).group(1)
-        except:
-            secondary_phone=None
-        return Contact(home_phone=home_phone, work_phone=work_phone,
-                   mobile_phone=mobile_phone, fax = fax, secondary_phone=secondary_phone)
+        all_phones="\n".join(filter(lambda x: x != "",
+                                (map(lambda x: self.clear(x),
+                                     filter(lambda x: x is not None,
+                                            [home_phone, mobile_phone,
+                                             work_phone, fax, secondary_phone])))))
+        # return Contact(home_phone=home_phone, work_phone=work_phone,
+        #            mobile_phone=mobile_phone, fax = fax, secondary_phone=secondary_phone)
+        return Contact(all_phones_from_view_page=all_phones)
 
 
 
@@ -221,6 +247,14 @@ class ContactHelper:
                                      filter(lambda x: x is not None,
                                             [contact.home_phone, contact.mobile_phone,
                                              contact.work_phone, contact.secondary_phone])))))
+
+
+    def merge_phones_like_on_home_view_page(self, contact):
+        return "\n".join(filter(lambda x: x != "",
+                                (map(lambda x: self.clear(x),
+                                     filter(lambda x: x is not None,
+                                            [contact.home_phone, contact.mobile_phone,
+                                             contact.work_phone, contact.fax, contact.secondary_phone])))))
 
 
     def merge_emails_like_on_home_page(self, contact):
