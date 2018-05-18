@@ -1,14 +1,13 @@
 from model.contact import Contact
 
-def test_contact_add(app, json_contacts):
+def test_contact_add(app, json_contacts, db, check_ui):
     contact = json_contacts
-    old_contact_list = app.contact.get_list_contact()
-    # print(sorted(old_contact_list, key=Contact.id_or_max))
-    # print("\n".join(map(str, old_contact_list)))
+    old_contact_list = db.get_contact_list()
     app.contact.create_new(contact)
-    assert len(old_contact_list) + 1 == app.contact.count()
-    new_contact_list = app.contact.get_list_contact()
-    # print(sorted(new_contact_list, key=Contact.id_or_max))
+    new_contact_list = db.get_contact_list()
     old_contact_list.append(contact)
-    # print(sorted(old_contact_list, key=Contact.id_or_max))
     assert sorted(old_contact_list, key=Contact.id_or_max) == sorted(new_contact_list, key=Contact.id_or_max)
+    if check_ui:
+        print("Проверка пользовательского интерфейса")
+        assert sorted(new_contact_list, key=Contact.id_or_max) == sorted(app.contact.get_contact_list(),
+                                                                         key=Contact.id_or_max)

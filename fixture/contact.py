@@ -19,7 +19,8 @@ class ContactHelper:
 
     def go_to_page_home(self):
         wd = self.app.wd
-        if not (wd.current_url.endswith("/addressbook/") and
+
+        if not (wd.current_url.endswith("/addressbook") and
                 len(wd.find_elements_by_xpath("//input[@value='Send e-Mail']")) > 0):
             wd.find_element_by_link_text("home").click()
 
@@ -87,9 +88,24 @@ class ContactHelper:
         self.go_to_page_home()
         self.contact_cash = None
 
+    def del_contact_by_id(self, id):
+        wd = self.app.wd
+        self.go_to_page_home()
+        # выбрать 1 контакт
+        self.select_contact_by_id(id)
+        # нажать на "удалить"
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        wd.switch_to_alert().accept()
+        self.go_to_page_home()
+        self.contact_cash = None
+
     def select_contact_by_index(self, index):
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
+
+    def select_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//input[@value='%s']" % id).click()
 
     def select_first_contact(self):
         self.select_contact_by_index(0)
@@ -104,9 +120,28 @@ class ContactHelper:
         self.go_to_page_home()
         self.contact_cash = None
 
+    def mod_contact_by_id(self, new_contact_data):
+        wd = self.app.wd
+        self.go_to_page_home()
+        self.select_edit_button_by_id(new_contact_data.id)
+        self.fill_contact_form(new_contact_data)
+        wd.find_element_by_name("update").click()
+        # прейти на страницу с контактами
+        self.go_to_page_home()
+        self.contact_cash = None
+
     def select_edit_button_by_index(self, index):
         wd = self.app.wd
         wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
+
+    def select_edit_button_by_id(self, id):
+        wd = self.app.wd
+        for row in wd.find_elements_by_name("entry"):
+            if len(row.find_elements_by_xpath(".//input[@id='%s']" % id)) == 1:
+                row.find_element_by_xpath(".//img[@alt='Edit']").click()
+                break
+
+
 
     def mod_first_contact(self, new_contact_data):
         self.mod_contact_by_index(0, new_contact_data)
@@ -118,7 +153,7 @@ class ContactHelper:
 
     contact_cash = None
 
-    def get_list_contact(self):
+    def get_contact_list(self):
         if self.contact_cash is None:
             wd = self.app.wd
             self.go_to_page_home()
@@ -127,8 +162,6 @@ class ContactHelper:
                 cells = row.find_elements_by_tag_name("td")
                 lastname = cells[1].text
                 firstname = cells[2].text
-                # lastname = element.find_element_by_css_selector("td:nth-of-type(2)").text
-                # firstname = element.find_element_by_css_selector("td:nth-of-type(3)").text
                 id = cells[0].find_element_by_tag_name("input").get_attribute("id")
                 all_phones = cells[5].text
                 self.contact_cash.append(
