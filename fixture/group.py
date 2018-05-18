@@ -73,6 +73,18 @@ class GroupHelper:
         self.open_page_group()
         self.group_cash = None
 
+    def mod_group_by_id(self, new_group_data):
+        wd = self.app.wd
+        self.open_page_group()
+        self.select_group_by_id(new_group_data.id)
+        wd.find_element_by_name("edit").click()
+        # вводим новые данные
+        self.fill_group_form(new_group_data)
+        # завершили обновление группы
+        wd.find_element_by_name("update").click()
+        self.open_page_group()
+        self.group_cash = None
+
     def select_first_group(self):
         self.select_group_by_index(0)
 

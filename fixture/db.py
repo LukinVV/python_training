@@ -23,5 +23,6 @@ class DbFixture:
                 (id, name, header, footer) = row
                 result_list.append(Group(id=str(id), name=name, header=header, footer=footer))
         finally:
+            self.connection.commit()
             cursor.close()
         return result_list
