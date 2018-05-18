@@ -42,7 +42,17 @@ class GroupHelper:
         wd = self.app.wd
         self.open_page_group()
         # выбрать 1 группу
-        self.select_group(index)
+        self.select_group_by_index(index)
+        # нажать на "удалить"
+        wd.find_element_by_name("delete").click()
+        self.open_page_group()
+        self.group_cash = None
+
+    def del_group_by_id(self, id):
+        wd = self.app.wd
+        self.open_page_group()
+        # выбрать 1 группу
+        self.select_group_by_id(id)
         # нажать на "удалить"
         wd.find_element_by_name("delete").click()
         self.open_page_group()
@@ -54,7 +64,7 @@ class GroupHelper:
     def mod_group_by_index(self, index, new_group_data):
         wd = self.app.wd
         self.open_page_group()
-        self.select_group(index)
+        self.select_group_by_index(index)
         wd.find_element_by_name("edit").click()
         # вводим новые данные
         self.fill_group_form(new_group_data)
@@ -64,11 +74,15 @@ class GroupHelper:
         self.group_cash = None
 
     def select_first_group(self):
-        self.select_group(0)
+        self.select_group_by_index(0)
 
-    def select_group(self, index):
+    def select_group_by_index(self, index):
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
+
+    def select_group_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//input[@value='%s']" % id).click()
 
     def count(self):
         wd = self.app.wd
@@ -77,7 +91,7 @@ class GroupHelper:
 
     group_cash = None
 
-    def get_list_group(self):
+    def get_group_list(self):
         if self.group_cash is None:
             wd = self.app.wd
             self.open_page_group()
