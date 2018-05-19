@@ -1,9 +1,8 @@
-from random import randrange
 from model.contact import Contact
 
 
-def test_verify_random_contact_on_home_page(app):
-    if app.contact.count() == 0:
+def test_verify_random_contact_on_home_page(app, orm):
+    if len(orm.get_group_list()) == 0:
         app.contact.create_new(Contact(
             # ФИО+nickname
             firstname="Владислав",
@@ -38,13 +37,14 @@ def test_verify_random_contact_on_home_page(app):
             # заметка
             notes="testin test"
         ))
-    index = randrange(app.contact.count())
-    contact_from_home_page = app.contact.get_contact_from_home_page_by_index(index)
-    contact_from_edit_page = app.contact.get_contact_info_from_edit_page_by_index(index)
-    assert contact_from_home_page.firstname == contact_from_edit_page.firstname
-    assert contact_from_home_page.lastname == contact_from_edit_page.lastname
-    assert contact_from_home_page.address == contact_from_edit_page.address
-    assert contact_from_home_page.all_emails_from_home_page == \
-           app.contact.merge_emails_like_on_home_page(contact_from_edit_page)
-    assert contact_from_home_page.all_phones_from_home_page == \
-           app.contact.merge_phones_like_on_home_page(contact_from_edit_page)
+    contacts_ui = sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
+    contacts_db = sorted(orm.get_contact_list(), key=Contact.id_or_max)
+    assert len(contacts_ui) == len(contacts_db)
+    for i in range(len(contacts_ui)):
+        assert contacts_ui[i].firstname == contacts_db[i].firstname
+        assert contacts_ui[i].lastname == contacts_db[i].lastname
+        assert contacts_ui[i].address == contacts_db[i].address
+        assert contacts_ui[i].all_emails_from_home_page == app.contact.merge_emails_like_on_home_page(contacts_db[i])
+        assert contacts_ui[i].all_phones_from_home_page == app.contact.merge_phones_like_on_home_page(contacts_db[i])
+
+

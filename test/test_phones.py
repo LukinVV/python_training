@@ -1,8 +1,8 @@
 from model.contact import Contact
 
 
-def test_phones_on_home_page(app):
-    if app.contact.count() == 0:
+def test_phones_on_home_page(app, orm):
+    if len(orm.get_group_list()) == 0:
         app.contact.create_new(Contact(firstname="New",
                                        home_phone="8495123456",
                                        mobile_phone="79265314806",
@@ -42,8 +42,8 @@ def test_phones_on_home_page(app):
 #     assert contact_from_view_page.secondary_phone == contact_from_edit_page.secondary_phone
 
 
-def test_phones_on_contact_view_page(app):
-    if app.contact.count() == 0:
+def test_phones_on_contact_view_page(app, orm):
+    if len(orm.get_group_list()) == 0:
         app.contact.create_new(Contact(firstname="New",
                                        home_phone="8495123456",
                                        mobile_phone="79265314806",

@@ -20,4 +20,4 @@ def test_group_list(app, orm):
         return Group(id=group.id, name=group.name.strip())
 
     print(timeit(lambda: map(clean, orm.get_group_list()), number=1000))
-    assert False  # sorted(ui_list, key=Group.id_or_max) == sorted(db_list, key=Group.id_or_max)
+    assert False # sorted(ui_list, key=Group.id_or_max) == sorted(db_list, key=Group.id_or_max)
