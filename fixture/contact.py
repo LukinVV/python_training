@@ -142,7 +142,6 @@ class ContactHelper:
                 break
 
 
-
     def mod_first_contact(self, new_contact_data):
         self.mod_contact_by_index(0, new_contact_data)
 
