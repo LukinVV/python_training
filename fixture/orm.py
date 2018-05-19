@@ -29,7 +29,7 @@ class ORMFixture:
         work_phone = Optional(str, column='work')
         fax = Optional(str, column='fax')
         secondary_phone = Optional(str, column='phone2')
-        deprecated = Optional(datetime, column='deprecated')
+        deprecated = Optional(str, column='deprecated')
 
     def __init__(self, host, name, user, password):
         conv = encoders
