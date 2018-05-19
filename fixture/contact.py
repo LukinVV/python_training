@@ -105,7 +105,7 @@ class ContactHelper:
 
     def select_contact_by_id(self, id):
         wd = self.app.wd
-        wd.find_element_by_xpath("//input[@value='%s']" % id).click()
+        wd.find_element_by_xpath(".//input[@value='%s']" % id).click()
 
     def select_first_contact(self):
         self.select_contact_by_index(0)
@@ -297,3 +297,26 @@ class ContactHelper:
         return "\n".join(filter(lambda x: x != "",
                                 filter(lambda x: x is not None,
                                        [contact.email, contact.email2, contact.email3])))
+
+    def add_to_group(self, contact_id, group_id):
+        wd = self.app.wd
+        self.go_to_page_home()
+        self.select_contact_by_id(contact_id)
+        self.select_groups_by_value('to_group', group_id)
+        wd.find_element_by_name('add').click()
+        self.go_to_page_home()
+
+    def select_groups_by_value(self, menu_name, value):
+        wd = self.app.wd
+        select = Select(wd.find_element_by_name(menu_name))
+        select.select_by_value(value)
+
+
+    def remove_from_group(self, contact_id, group_id):
+        wd = self.app.wd
+        self.go_to_page_home()
+        self.select_groups_by_value('group', group_id)
+        self.select_contact_by_id(contact_id)
+        wd.find_element_by_name('remove').click()
+        self.go_to_page_home()
+        self.select_groups_by_value('group', "")
