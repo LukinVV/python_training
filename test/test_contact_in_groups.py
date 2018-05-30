@@ -2,7 +2,8 @@ from model.contact import Contact
 from model.group import Group
 import random
 
-def test_add_contact_to_group(app, orm):
+
+def test_add_contact_to_group(app, orm, check_ui):
     if len(orm.get_group_list()) == 0:
         app.group.create_new(Group(name="NEW"))
     group = random.choice(orm.get_group_list())
@@ -14,13 +15,18 @@ def test_add_contact_to_group(app, orm):
     app.contact.add_to_group(contact.id, group.id)
     assert contact in orm.get_contacts_in_groups(group)
     assert contact not in orm.get_contacts_not_in_groups(group)
-    orm.get_contacts_not_in_groups(group).append(contact)
-    sorted(orm.get_contacts_not_in_groups(group), key=Contact.id_or_max) == sorted(orm.get_contacts_in_groups(group),
-                                                                                   key=Contact.id_or_max)
+
+    # orm.get_contacts_not_in_groups(group).append(contact)
+    # assert sorted(orm.get_contacts_not_in_groups(group), key=Contact.id_or_max) == sorted(
+    #     orm.get_contacts_in_groups(group),
+    #     key=Contact.id_or_max)
+    if check_ui:
+        print("Проверка пользовательского интерфейса")
+        assert sorted(orm.get_contacts_not_in_groups(group), key=Group.id_or_max) == sorted(
+            app.contact.get_contact_list_in_group(group.id), key=Group.id_or_max)
 
 
-
-def test_remove_contact_from_group(app, orm):
+def test_remove_contact_from_group(app, orm, check_ui):
     if len(orm.get_group_list()) == 0:
         app.group.create_new(Group(name="NEW"))
     group = random.choice(orm.get_group_list())
@@ -36,6 +42,11 @@ def test_remove_contact_from_group(app, orm):
     app.contact.remove_from_group(contact.id, group.id)
     assert contact in orm.get_contacts_not_in_groups(group)
     assert contact not in orm.get_contacts_in_groups(group)
-    orm.get_contacts_not_in_groups(group).remove(contact)
-    sorted(orm.get_contacts_not_in_groups(group), key=Contact.id_or_max) == sorted(orm.get_contacts_in_groups(group),
-                                                                                   key=Contact.id_or_max)
+    # orm.get_contacts_not_in_groups(group).remove(contact)
+    # assert sorted(orm.get_contacts_not_in_groups(group), key=Contact.id_or_max) == sorted(
+    #     orm.get_contacts_in_groups(group),
+    #     key=Contact.id_or_max)
+    if check_ui:
+        print("Проверка пользовательского интерфейса")
+        assert sorted(orm.get_contacts_in_groups(group), key=Group.id_or_max) == sorted(
+            app.contact.get_contact_list_in_group(group.id), key=Group.id_or_max)

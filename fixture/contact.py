@@ -320,3 +320,23 @@ class ContactHelper:
         wd.find_element_by_name('remove').click()
         self.go_to_page_home()
         self.select_groups_by_value('group', "")
+
+    def get_contact_list_in_group(self, group_id):
+        if self.contact_cash is None:
+            wd = self.app.wd
+            self.go_to_page_home()
+            self.select_groups_by_value('group', group_id)
+            self.contact_cash = []
+            for row in wd.find_elements_by_name("entry"):
+                cells = row.find_elements_by_tag_name("td")
+                lastname = cells[1].text
+                firstname = cells[2].text
+                address = cells[3].text
+                id = cells[0].find_element_by_tag_name("input").get_attribute("id")
+                all_emails = cells[4].text
+                all_phones = cells[5].text
+                self.contact_cash.append(
+                    Contact(firstname=firstname, lastname=lastname, id=id, address=address,
+                            all_emails_from_home_page=all_emails,
+                            all_phones_from_home_page=all_phones))
+        return self.contact_cash
