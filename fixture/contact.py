@@ -2,7 +2,6 @@ from selenium.webdriver.support.ui import Select
 import re
 from model.contact import Contact
 
-
 class ContactHelper:
 
     def __init__(self, app):
@@ -305,6 +304,7 @@ class ContactHelper:
         self.select_groups_by_value('to_group', group_id)
         wd.find_element_by_name('add').click()
         self.go_to_page_home()
+        self.contact_cash = None
 
     def select_groups_by_value(self, menu_name, value):
         wd = self.app.wd
@@ -320,6 +320,7 @@ class ContactHelper:
         wd.find_element_by_name('remove').click()
         self.go_to_page_home()
         self.select_groups_by_value('group', "")
+        self.contact_cash = None
 
     def get_contact_list_in_group(self, group_id):
         if self.contact_cash is None:
@@ -339,4 +340,5 @@ class ContactHelper:
                     Contact(firstname=firstname, lastname=lastname, id=id, address=address,
                             all_emails_from_home_page=all_emails,
                             all_phones_from_home_page=all_phones))
+            self.select_groups_by_value('group', "")
         return self.contact_cash
