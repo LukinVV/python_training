@@ -1,0 +1,95 @@
+{
+  "uid" : "f49911630b7670f9",
+  "name" : "test_contact_add[[lastname= Swynw ; firstname= Tnswzh ; id= None]]",
+  "title" : "Test contact add [[lastname= Swynw ; firstname= Tnswzh ; id= None]]",
+  "time" : {
+    "start" : 1528483172816,
+    "stop" : 1528483176045,
+    "duration" : 3229
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 3
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "f0e29ad15bf25198",
+    "name" : "test.test_contact_add",
+    "title" : "Test contact add"
+  },
+  "steps" : [ {
+    "name" : "Given a contact list",
+    "title" : "Given a contact list",
+    "time" : {
+      "start" : 1528483172926,
+      "stop" : 1528483172931,
+      "duration" : 5
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "When I add a contact [lastname= Swynw ; firstname= Tnswzh ; id= None] to the list",
+    "title" : "When I add a contact [lastname= Swynw ; firstname= Tnswzh ; id= None] to the list",
+    "time" : {
+      "start" : 1528483172931,
+      "stop" : 1528483176035,
+      "duration" : 3104
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "Then the new contact list is equal to the old list with the added contact",
+    "title" : "Then the new contact list is equal to the old list with the added contact",
+    "time" : {
+      "start" : 1528483176035,
+      "stop" : 1528483176044,
+      "duration" : 9
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "suite-name",
+    "value" : "test.test_contact_add"
+  }, {
+    "name" : "host",
+    "value" : "Lukin"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "7124-MainThread"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  } ],
+  "parameters" : [ ]
+}

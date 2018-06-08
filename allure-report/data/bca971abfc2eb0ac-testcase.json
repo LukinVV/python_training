@@ -1,0 +1,50 @@
+{
+  "uid" : "bca971abfc2eb0ac",
+  "name" : "test_phones_on_contact_view_page",
+  "title" : "Test phones on contact view page",
+  "time" : {
+    "start" : 1528483200612,
+    "stop" : 1528483201418,
+    "duration" : 806
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 0
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "122de3f5daf8941f",
+    "name" : "test.test_phones",
+    "title" : "Test phones"
+  },
+  "steps" : [ ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "Lukin"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "7124-MainThread"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_phones"
+  } ],
+  "parameters" : [ ]
+}

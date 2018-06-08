@@ -1,0 +1,257 @@
+{
+  "features" : [ {
+    "title" : "Without feature",
+    "statistic" : {
+      "total" : 21,
+      "passed" : 21,
+      "pending" : 0,
+      "canceled" : 0,
+      "failed" : 0,
+      "broken" : 0
+    },
+    "stories" : [ {
+      "uid" : "333b8ca413b7ef58",
+      "title" : "Without story",
+      "statistic" : {
+        "total" : 21,
+        "passed" : 21,
+        "pending" : 0,
+        "canceled" : 0,
+        "failed" : 0,
+        "broken" : 0
+      },
+      "testCases" : [ {
+        "uid" : "fd21ebceb03cc7d4",
+        "name" : "test_mod_group_name",
+        "title" : "Test mod group name",
+        "time" : {
+          "start" : 1528485273010,
+          "stop" : 1528485273667,
+          "duration" : 657
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "9575d38678c22f8a",
+        "name" : "test_group_add[None:;;]",
+        "title" : "Test group add [None:;;]",
+        "time" : {
+          "start" : 1528485268050,
+          "stop" : 1528485268914,
+          "duration" : 864
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "6e580a824bbfa157",
+        "name" : "test_group_add[None:namey lTXdd;header 2  e   kPDqRTc1;footer b6zlKgk sG PHof  f]",
+        "title" : "Test group add [None:namey lTXdd;header 2  e   kPDqRTc1;footer b6zlKgk sG PHof  f]",
+        "time" : {
+          "start" : 1528485268916,
+          "stop" : 1528485269723,
+          "duration" : 807
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "37ea4e7d3f4c3e58",
+        "name" : "test_group_add[None:namefe;headers ;footerZnNMSWJNgCdMbjB7]",
+        "title" : "Test group add [None:namefe;headers ;footerZnNMSWJNgCdMbjB7]",
+        "time" : {
+          "start" : 1528485269725,
+          "stop" : 1528485270455,
+          "duration" : 730
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "325e7eb8cb7ea96d",
+        "name" : "test_group_add[None:name1r;headerAzOK30  ylihy;footer 6e zCpsSJlM oA1N V]",
+        "title" : "Test group add [None:name1r;headerAzOK30  ylihy;footer 6e zCpsSJlM oA1N V]",
+        "time" : {
+          "start" : 1528485270456,
+          "stop" : 1528485271209,
+          "duration" : 753
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "caa4b0cd24a199f7",
+        "name" : "test_group_add[None:nameWPNHUD;headerX   w gsi 4kfXO 2v;footerEmaq]",
+        "title" : "Test group add [None:nameWPNHUD;headerX   w gsi 4kfXO 2v;footerEmaq]",
+        "time" : {
+          "start" : 1528485271210,
+          "stop" : 1528485271988,
+          "duration" : 778
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "7357dc03149247df",
+        "name" : "test_group_add[None:namey g6c;headeriI;footer9d f]",
+        "title" : "Test group add [None:namey g6c;headeriI;footer9d f]",
+        "time" : {
+          "start" : 1528485271989,
+          "stop" : 1528485272678,
+          "duration" : 689
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "2759c4fdb8bc9392",
+        "name" : "test_mod_some_cotact",
+        "title" : "Test mod some cotact",
+        "time" : {
+          "start" : 1528485266985,
+          "stop" : 1528485268047,
+          "duration" : 1062
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "b0f564e57878cbf7",
+        "name" : "test_add_contact_to_group",
+        "title" : "Test add contact to group",
+        "time" : {
+          "start" : 1528485264821,
+          "stop" : 1528485265543,
+          "duration" : 722
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "122978ba0f674047",
+        "name" : "test_remove_contact_from_group",
+        "title" : "Test remove contact from group",
+        "time" : {
+          "start" : 1528485265544,
+          "stop" : 1528485266983,
+          "duration" : 1439
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "8fa94439ffef8ba7",
+        "name" : "test_del_some_contact",
+        "title" : "Test del some contact",
+        "time" : {
+          "start" : 1528485264140,
+          "stop" : 1528485264820,
+          "duration" : 680
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "5e7cba8f6eee2d83",
+        "name" : "test_del_some_group",
+        "title" : "Test del some group",
+        "time" : {
+          "start" : 1528485272680,
+          "stop" : 1528485273009,
+          "duration" : 329
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "35a8e169125c5ea8",
+        "name" : "test_phones_on_home_page",
+        "title" : "Test phones on home page",
+        "time" : {
+          "start" : 1528485273668,
+          "stop" : 1528485277359,
+          "duration" : 3691
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "b952ac384d6d172c",
+        "name" : "test_phones_on_contact_view_page",
+        "title" : "Test phones on contact view page",
+        "time" : {
+          "start" : 1528485277360,
+          "stop" : 1528485278106,
+          "duration" : 746
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "9371111caae2547e",
+        "name" : "test_contact_add[[lastname= Rcwkc ; firstname= Fmpro ; id= None]]",
+        "title" : "Test contact add [[lastname= Rcwkc ; firstname= Fmpro ; id= None]]",
+        "time" : {
+          "start" : 1528485239766,
+          "stop" : 1528485249245,
+          "duration" : 9479
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "64b8c97cf4778e69",
+        "name" : "test_contact_add[[lastname= Swynw ; firstname= Tnswzh ; id= None]]",
+        "title" : "Test contact add [[lastname= Swynw ; firstname= Tnswzh ; id= None]]",
+        "time" : {
+          "start" : 1528485249246,
+          "stop" : 1528485252643,
+          "duration" : 3397
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "aaf0da666e185121",
+        "name" : "test_contact_add[[lastname= Ncxjld ; firstname= Vngt ; id= None]]",
+        "title" : "Test contact add [[lastname= Ncxjld ; firstname= Vngt ; id= None]]",
+        "time" : {
+          "start" : 1528485252645,
+          "stop" : 1528485256059,
+          "duration" : 3414
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "3774161f441269ec",
+        "name" : "test_contact_add[[lastname= Ofyoud ; firstname= Txcr ; id= None]]",
+        "title" : "Test contact add [[lastname= Ofyoud ; firstname= Txcr ; id= None]]",
+        "time" : {
+          "start" : 1528485256060,
+          "stop" : 1528485259393,
+          "duration" : 3333
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "d1e00041530218ed",
+        "name" : "test_contact_add[[lastname= Symio ; firstname= Zjheg ; id= None]]",
+        "title" : "Test contact add [[lastname= Symio ; firstname= Zjheg ; id= None]]",
+        "time" : {
+          "start" : 1528485259394,
+          "stop" : 1528485262723,
+          "duration" : 3329
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "7732eeb19ac7904f",
+        "name" : "test_contact_add[[lastname=  ; firstname=  ; id= None]]",
+        "title" : "Test contact add [[lastname=  ; firstname=  ; id= None]]",
+        "time" : {
+          "start" : 1528485262724,
+          "stop" : 1528485264139,
+          "duration" : 1415
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "20d7a76f31de170e",
+        "name" : "test_verify_random_contact_on_home_page",
+        "title" : "Test verify random contact on home page",
+        "time" : {
+          "start" : 1528485278107,
+          "stop" : 1528485278158,
+          "duration" : 51
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      } ]
+    } ]
+  } ]
+}

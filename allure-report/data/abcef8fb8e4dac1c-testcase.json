@@ -1,0 +1,95 @@
+{
+  "uid" : "abcef8fb8e4dac1c",
+  "name" : "test_del_some_group",
+  "title" : "Test del some group",
+  "time" : {
+    "start" : 1528483196216,
+    "stop" : 1528483196577,
+    "duration" : 361
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 3
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "a02ec1a682d5ddc3",
+    "name" : "test.test_group_del",
+    "title" : "Test group del"
+  },
+  "steps" : [ {
+    "name" : "Given a group list",
+    "title" : "Given a group list",
+    "time" : {
+      "start" : 1528483196262,
+      "stop" : 1528483196268,
+      "duration" : 6
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "When I delete a group 475:namefe;headers ;footerZnNMSWJNgCdMbjB7 from the list",
+    "title" : "When I delete a group 475:namefe;headers ;footerZnNMSWJNgCdMbjB7 from the list",
+    "time" : {
+      "start" : 1528483196268,
+      "stop" : 1528483196573,
+      "duration" : 305
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "Then the new group list is equal to the old list without the deleted group",
+    "title" : "Then the new group list is equal to the old list without the deleted group",
+    "time" : {
+      "start" : 1528483196573,
+      "stop" : 1528483196576,
+      "duration" : 3
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "Lukin"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_group_del"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "7124-MainThread"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  } ],
+  "parameters" : [ ]
+}

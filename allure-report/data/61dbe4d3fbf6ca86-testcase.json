@@ -1,0 +1,50 @@
+{
+  "uid" : "61dbe4d3fbf6ca86",
+  "name" : "test_verify_random_contact_on_home_page",
+  "title" : "Test verify random contact on home page",
+  "time" : {
+    "start" : 1528483201419,
+    "stop" : 1528483201472,
+    "duration" : 53
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 0
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "4d8d90a71e9d3160",
+    "name" : "test.test_verify_contact_mail_and_address",
+    "title" : "Test verify contact mail and address"
+  },
+  "steps" : [ ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "Lukin"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_verify_contact_mail_and_address"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "7124-MainThread"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  } ],
+  "parameters" : [ ]
+}

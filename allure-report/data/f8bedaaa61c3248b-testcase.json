@@ -1,0 +1,95 @@
+{
+  "uid" : "f8bedaaa61c3248b",
+  "name" : "test_mod_group_name",
+  "title" : "Test mod group name",
+  "time" : {
+    "start" : 1528483196578,
+    "stop" : 1528483197284,
+    "duration" : 706
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 3
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "7dd8cb8f5e13434c",
+    "name" : "test.test_group_modify",
+    "title" : "Test group modify"
+  },
+  "steps" : [ {
+    "name" : "Given a non-empty group list",
+    "title" : "Given a non-empty group list",
+    "time" : {
+      "start" : 1528483196630,
+      "stop" : 1528483196638,
+      "duration" : 8
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "I modify the group 444:name1r;headerAzOK30  ylihy;footer 6e zCpsSJlM oA1N V in the list",
+    "title" : "I modify the group 444:name1r;headerAzOK30  ylihy;footer 6e zCpsSJlM oA1N V in the list",
+    "time" : {
+      "start" : 1528483196639,
+      "stop" : 1528483197279,
+      "duration" : 640
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "the new group list is equal to the old list with the modified group",
+    "title" : "the new group list is equal to the old list with the modified group",
+    "time" : {
+      "start" : 1528483197279,
+      "stop" : 1528483197283,
+      "duration" : 4
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "Lukin"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_group_modify"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "7124-MainThread"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  } ],
+  "parameters" : [ ]
+}

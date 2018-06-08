@@ -1,0 +1,37 @@
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1528485273010" stop="1528485273667">
+  <name>test.test_group_modify</name>
+  <labels/>
+  <test-cases>
+    <test-case start="1528485273010" status="passed" stop="1528485273667">
+      <name>test_mod_group_name</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="13652-MainThread"/>
+        <label name="host" value="Lukin"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1528485273057" status="passed" stop="1528485273064">
+          <name>Given a non-empty group list</name>
+          <title>Given a non-empty group list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485273064" status="passed" stop="1528485273661">
+          <name>I modify the group 464:name2;header2;footer2 in the list</name>
+          <title>I modify the group 464:name2;header2;footer2 in the list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485273661" status="passed" stop="1528485273666">
+          <name>the new group list is equal to the old list with the modified group</name>
+          <title>the new group list is equal to the old list with the modified group</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+  </test-cases>
+</ns0:test-suite>

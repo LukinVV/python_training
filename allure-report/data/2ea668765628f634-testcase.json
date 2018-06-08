@@ -1,0 +1,95 @@
+{
+  "uid" : "2ea668765628f634",
+  "name" : "test_mod_some_cotact",
+  "title" : "Test mod some cotact",
+  "time" : {
+    "start" : 1528483190253,
+    "stop" : 1528483191383,
+    "duration" : 1130
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 3
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "f8e3c2f15e6700ca",
+    "name" : "test.test_contact_modify",
+    "title" : "Test contact modify"
+  },
+  "steps" : [ {
+    "name" : "Given a non-empty group list",
+    "title" : "Given a non-empty group list",
+    "time" : {
+      "start" : 1528483190361,
+      "stop" : 1528483190371,
+      "duration" : 10
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "When I modify a contact with id=380 in the list",
+    "title" : "When I modify a contact with id=380 in the list",
+    "time" : {
+      "start" : 1528483190371,
+      "stop" : 1528483191375,
+      "duration" : 1004
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "Then the new contact list is equal to the old list with the modified contact",
+    "title" : "Then the new contact list is equal to the old list with the modified contact",
+    "time" : {
+      "start" : 1528483191375,
+      "stop" : 1528483191382,
+      "duration" : 7
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "Lukin"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_contact_modify"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "7124-MainThread"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  } ],
+  "parameters" : [ ]
+}

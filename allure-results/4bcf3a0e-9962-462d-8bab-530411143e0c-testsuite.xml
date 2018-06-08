@@ -1,0 +1,37 @@
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1528485266985" stop="1528485268047">
+  <name>test.test_contact_modify</name>
+  <labels/>
+  <test-cases>
+    <test-case start="1528485266985" status="passed" stop="1528485268047">
+      <name>test_mod_some_cotact</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="13652-MainThread"/>
+        <label name="host" value="Lukin"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1528485267105" status="passed" stop="1528485267114">
+          <name>Given a non-empty group list</name>
+          <title>Given a non-empty group list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485267114" status="passed" stop="1528485268040">
+          <name>When I modify a contact with id=373 in the list</name>
+          <title>When I modify a contact with id=373 in the list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485268040" status="passed" stop="1528485268046">
+          <name>Then the new contact list is equal to the old list with the modified contact</name>
+          <title>Then the new contact list is equal to the old list with the modified contact</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+  </test-cases>
+</ns0:test-suite>

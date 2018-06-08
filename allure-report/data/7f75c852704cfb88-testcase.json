@@ -1,0 +1,95 @@
+{
+  "uid" : "7f75c852704cfb88",
+  "name" : "test_del_some_contact",
+  "title" : "Test del some contact",
+  "time" : {
+    "start" : 1528483187441,
+    "stop" : 1528483188094,
+    "duration" : 653
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 3
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "1770c739dda100f",
+    "name" : "test.test_contact_del",
+    "title" : "Test contact del"
+  },
+  "steps" : [ {
+    "name" : "Given a group list",
+    "title" : "Given a group list",
+    "time" : {
+      "start" : 1528483187549,
+      "stop" : 1528483187559,
+      "duration" : 10
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "When I delete a contact [lastname= lastname1 ; firstname= firstname1 ; id= 370] from the list",
+    "title" : "When I delete a contact [lastname= lastname1 ; firstname= firstname1 ; id= 370] from the list",
+    "time" : {
+      "start" : 1528483187559,
+      "stop" : 1528483188087,
+      "duration" : 528
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "Then the new contact list is equal to the old list without the deleted contact",
+    "title" : "Then the new contact list is equal to the old list without the deleted contact",
+    "time" : {
+      "start" : 1528483188087,
+      "stop" : 1528483188094,
+      "duration" : 7
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "Lukin"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "7124-MainThread"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_contact_del"
+  } ],
+  "parameters" : [ ]
+}

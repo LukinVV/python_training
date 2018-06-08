@@ -1,0 +1,50 @@
+{
+  "uid" : "2752aa0e9dfc7152",
+  "name" : "test_add_contact_to_group",
+  "title" : "Test add contact to group",
+  "time" : {
+    "start" : 1528483188095,
+    "stop" : 1528483188814,
+    "duration" : 719
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 0
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "5d2748cbc6b8ab7e",
+    "name" : "test.test_contact_in_groups",
+    "title" : "Test contact in groups"
+  },
+  "steps" : [ ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "Lukin"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_contact_in_groups"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "7124-MainThread"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  } ],
+  "parameters" : [ ]
+}

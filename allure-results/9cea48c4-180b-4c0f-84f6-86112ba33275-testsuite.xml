@@ -1,0 +1,192 @@
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1528485239766" stop="1528485264139">
+  <name>test.test_contact_add</name>
+  <labels/>
+  <test-cases>
+    <test-case start="1528485239766" status="passed" stop="1528485249245">
+      <name>test_contact_add[[lastname= Rcwkc ; firstname= Fmpro ; id= None]]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="13652-MainThread"/>
+        <label name="host" value="Lukin"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1528485245767" status="passed" stop="1528485245776">
+          <name>Given a contact list</name>
+          <title>Given a contact list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485245776" status="passed" stop="1528485249235">
+          <name>When I add a contact [lastname= Rcwkc ; firstname= Fmpro ; id= None] to the list</name>
+          <title>When I add a contact [lastname= Rcwkc ; firstname= Fmpro ; id= None] to the list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485249235" status="passed" stop="1528485249244">
+          <name>Then the new contact list is equal to the old list with the added contact</name>
+          <title>Then the new contact list is equal to the old list with the added contact</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1528485249246" status="passed" stop="1528485252643">
+      <name>test_contact_add[[lastname= Swynw ; firstname= Tnswzh ; id= None]]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="13652-MainThread"/>
+        <label name="host" value="Lukin"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1528485249379" status="passed" stop="1528485249384">
+          <name>Given a contact list</name>
+          <title>Given a contact list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485249384" status="passed" stop="1528485252636">
+          <name>When I add a contact [lastname= Swynw ; firstname= Tnswzh ; id= None] to the list</name>
+          <title>When I add a contact [lastname= Swynw ; firstname= Tnswzh ; id= None] to the list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485252636" status="passed" stop="1528485252642">
+          <name>Then the new contact list is equal to the old list with the added contact</name>
+          <title>Then the new contact list is equal to the old list with the added contact</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1528485252645" status="passed" stop="1528485256059">
+      <name>test_contact_add[[lastname= Ncxjld ; firstname= Vngt ; id= None]]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="13652-MainThread"/>
+        <label name="host" value="Lukin"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1528485252765" status="passed" stop="1528485252771">
+          <name>Given a contact list</name>
+          <title>Given a contact list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485252771" status="passed" stop="1528485256051">
+          <name>When I add a contact [lastname= Ncxjld ; firstname= Vngt ; id= None] to the list</name>
+          <title>When I add a contact [lastname= Ncxjld ; firstname= Vngt ; id= None] to the list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485256051" status="passed" stop="1528485256059">
+          <name>Then the new contact list is equal to the old list with the added contact</name>
+          <title>Then the new contact list is equal to the old list with the added contact</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1528485256060" status="passed" stop="1528485259393">
+      <name>test_contact_add[[lastname= Ofyoud ; firstname= Txcr ; id= None]]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="13652-MainThread"/>
+        <label name="host" value="Lukin"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1528485256168" status="passed" stop="1528485256172">
+          <name>Given a contact list</name>
+          <title>Given a contact list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485256172" status="passed" stop="1528485259386">
+          <name>When I add a contact [lastname= Ofyoud ; firstname= Txcr ; id= None] to the list</name>
+          <title>When I add a contact [lastname= Ofyoud ; firstname= Txcr ; id= None] to the list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485259386" status="passed" stop="1528485259393">
+          <name>Then the new contact list is equal to the old list with the added contact</name>
+          <title>Then the new contact list is equal to the old list with the added contact</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1528485259394" status="passed" stop="1528485262723">
+      <name>test_contact_add[[lastname= Symio ; firstname= Zjheg ; id= None]]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="13652-MainThread"/>
+        <label name="host" value="Lukin"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1528485259508" status="passed" stop="1528485259512">
+          <name>Given a contact list</name>
+          <title>Given a contact list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485259512" status="passed" stop="1528485262714">
+          <name>When I add a contact [lastname= Symio ; firstname= Zjheg ; id= None] to the list</name>
+          <title>When I add a contact [lastname= Symio ; firstname= Zjheg ; id= None] to the list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485262714" status="passed" stop="1528485262722">
+          <name>Then the new contact list is equal to the old list with the added contact</name>
+          <title>Then the new contact list is equal to the old list with the added contact</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1528485262724" status="passed" stop="1528485264139">
+      <name>test_contact_add[[lastname=  ; firstname=  ; id= None]]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="13652-MainThread"/>
+        <label name="host" value="Lukin"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1528485262834" status="passed" stop="1528485262840">
+          <name>Given a contact list</name>
+          <title>Given a contact list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485262840" status="passed" stop="1528485264132">
+          <name>When I add a contact [lastname=  ; firstname=  ; id= None] to the list</name>
+          <title>When I add a contact [lastname=  ; firstname=  ; id= None] to the list</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1528485264132" status="passed" stop="1528485264139">
+          <name>Then the new contact list is equal to the old list with the added contact</name>
+          <title>Then the new contact list is equal to the old list with the added contact</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+  </test-cases>
+</ns0:test-suite>
